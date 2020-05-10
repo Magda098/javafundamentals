@@ -1,18 +1,22 @@
 public class main {
-    public static void calculateEmployeeGrossSalary(double hoursPerDay,double vacationDays,double earningsPerHour) {
+    public static double calculateEmployeeGrossSalary(double hoursPerWeek,double earningsPerHour,
+                                                      int vacationDays) {
+        /* if (hoursPerWeek < 0);{
+            return -1;
+        }
+       if (earningsPerHour < 0);{
+            return -1;
+        }*/
+        double weeklyPaycheck = hoursPerWeek*earningsPerHour;
+        double unpaidTime=vacationDays*earningsPerHour*8;
+        return (weeklyPaycheck*52)-unpaidTime;
 
-       // double employeeTotalWeeklySalary=hoursPerWeek*earningsPerHour;
-        double vacationHours=hoursPerDay*vacationDays;
-        double hoursPeryear=hoursPerDay*365;
-        double paidHours=hoursPeryear-vacationHours;
-        double grossYearlySalary=paidHours*earningsPerHour;
-
-        System.out.println("Gross Salary is:"+ grossYearlySalary);
     }
+
     public static void main(String[] args) {
 
-        calculateEmployeeGrossSalary(8, 24,500);
-
-
+        double grossSalary=calculateEmployeeGrossSalary(40,15,8);
+        System.out.println(grossSalary);
     }
+    
 }
